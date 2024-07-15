@@ -1,0 +1,42 @@
+<section>
+
+    <div class="container">
+
+        <h1 class="my-5 text-center"> Customer Transactions </h1>
+
+        <div class="data text-center">
+
+            <!-- <label for="select" class="mb-1 w-75 m-auto text-start ps-2">Select Customer</label> -->
+            <select id="select" class="form-select mb-5 w-75 m-auto" [(ngModel)]="selectedCustomer">
+                <option value="0" class="fw-medium" disabled selected>All Customers </option>
+                <option *ngFor="let customer of customers" [value]="customer.id" class="fw-medium">{{customer.name}}</option>
+            </select>  
+        
+        
+            <table class="table table-hover table-dark text-center mb-3">
+                <thead>
+                    <tr>
+                        <th>Customer name</th>
+                        <th>Customer Id</th>
+                        <th>Transaction Date</th>
+                        <th>Transaction Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let transaction of TransactionsWithCustomersName|filter:selectedCustomer">
+                        <td>{{transaction.name}}</td>
+                        <td>#{{transaction.customer_id}}</td>
+                        <td>{{transaction.date}}</td>
+                        <td>{{transaction.amount}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <app-chart [transactionArr]="TransactionsWithCustomersName|filter:selectedCustomer"></app-chart>
+
+       </div>
+
+    </div>
+
+    <!-- <app-chart [transactionArr]="TransactionsWithCustomersName|filter:selectedCustomer"></app-chart> -->
+</section>
