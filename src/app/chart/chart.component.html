@@ -1,4 +1,5 @@
-<div class="chart-container" *ngIf="isChange">
-        <canvas #myChart></canvas>
+<div class="chart-container" >
+        <canvas #myChart *ngIf="isChange else none"></canvas>
 </div>
     
+<ng-template #none></ng-template>
