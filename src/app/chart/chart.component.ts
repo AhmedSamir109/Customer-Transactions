@@ -28,7 +28,7 @@ export class ChartComponent {
 
   ngOnChanges(changes: SimpleChanges): void {
     this.isChange=true
-    console.log(this.transactionArr , changes);
+    // console.log(this.transactionArr , changes);
     
     // if there is a change destroy chart
     if (this.myChart) {

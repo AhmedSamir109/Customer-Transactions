@@ -6,14 +6,22 @@
 
         <div class="data text-center">
 
-            <!-- <label for="select" class="mb-1 w-75 m-auto text-start ps-2">Select Customer</label> -->
-            <select id="select" class="form-select mb-5 w-75 m-auto" [(ngModel)]="selectedCustomer">
-                <option value="0" class="fw-medium" disabled selected>All Customers </option>
-                <option *ngFor="let customer of customers" [value]="customer.id" class="fw-medium">{{customer.name}}</option>
-            </select>  
+            <div class="d-flex w-100 align-items-baseline">
+                
+                <span class="me-3">
+                    <label for="select" class=" text-start ps-2 fw-medium fs-4">Select Customer : </label>
+                </span>
+                <span class="flex-grow-1">
+                    <select id="select" class="form-select mb-5" [(ngModel)]="selectedCustomer">
+                        <option value="0" class="fw-medium" disabled selected>All Customers </option>
+                        <option *ngFor="let customer of customers" [value]="customer.id" class="fw-medium">{{customer.name}}</option>
+                    </select>  
+                </span>
+                
+                    
+            </div>
         
-        
-            <table class="table table-hover table-dark text-center mb-3">
+            <table class="table table-hover table-dark text-center mb-4">
                 <thead>
                     <tr>
                         <th>Customer name</th>
