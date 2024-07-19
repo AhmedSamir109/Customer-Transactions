@@ -11,25 +11,16 @@ export class ChartComponent {
 
   // make transactionArr as input to receive the changed value from customer component
   @Input() transactionArr : CustomerTransaction[] =[]
-
+  
 
   // special for char.js config
   @ViewChild('myChart') chartRef: ElementRef | undefined;
   myChart: Chart | undefined;
   
-  //boolean flag --> to make chart appear after change in transactionArr .. after select specific customer
-  isChange:boolean =true ;
-
-  //make chart disappear At the beginning of application
-  ngOnInit(): void {
-    this.isChange=false
-  }
-
-
+  
   ngOnChanges(changes: SimpleChanges): void {
-    this.isChange=true
-    // console.log(this.transactionArr , changes);
     
+
     // if there is a change destroy chart
     if (this.myChart) {
       this.myChart.destroy();

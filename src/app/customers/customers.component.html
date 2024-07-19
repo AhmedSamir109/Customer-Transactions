@@ -12,8 +12,8 @@
                     <label for="select" class=" text-start ps-2 fw-medium fs-4">Select Customer : </label>
                 </span>
                 <span class="flex-grow-1">
-                    <select id="select" class="form-select mb-5" [(ngModel)]="selectedCustomer">
-                        <option value="0" class="fw-medium" disabled selected>All Customers </option>
+                    <select id="select" class="form-select mb-5" [(ngModel)]="selectedCustomer" (input)="changeData($event)">
+                        <option value="0" class="fw-medium" selected>All Customers </option>
                         <option *ngFor="let customer of customers" [value]="customer.id" class="fw-medium">{{customer.name}}</option>
                     </select>  
                 </span>
@@ -40,7 +40,7 @@
                 </tbody>
             </table>
 
-            <app-chart [transactionArr]="TransactionsWithCustomersName|filter:selectedCustomer"></app-chart>
+            <app-chart [transactionArr]="TransactionsWithCustomersName|filter:selectedCustomer" *ngIf="hide"></app-chart>
 
        </div>
 
